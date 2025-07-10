@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cody Dalton's Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the 90s theme */
+        body {
+            background-color: #008080; /* Classic 90s teal background */
+            font-family: 'VT323', monospace; /* Pixelated font for retro feel */
+            font-size: 18px;
+        }
+
+        /* The main browser window */
+        .browser-window {
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            background-color: #C0C0C0; /* Classic grey */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* The title bar of the browser window */
+        .title-bar {
+            background: linear-gradient(to right, #000080, #1084d0); /* Navy blue gradient */
+            color: white;
+            padding: 4px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Window control buttons (minimize, maximize, close) */
+        .window-controls {
+            display: flex;
+        }
+
+        .window-control-btn {
+            width: 20px;
+            height: 20px;
+            background-color: #C0C0C0;
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            margin-left: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: monospace;
+            box-shadow: 1px 1px 0 #000;
+        }
+        
+        /* General button style for that classic 3D look */
+        .btn-95 {
+            background-color: #C0C0C0;
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .btn-95:active {
+            border-top-color: #404040;
+            border-left-color: #404040;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            box-shadow: none;
+        }
+
+        /* The main content area */
+        .content-area {
+            background-color: #ffffff;
+            border: 2px solid;
+            border-top-color: #404040;
+            border-left-color: #404040;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            min-height: 400px;
+        }
+        
+        /* Tab styles */
+        .tab {
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            background-color: #C0C0C0;
+            border-bottom: none;
+            margin-right: 2px;
+            padding: 5px 10px;
+            position: relative;
+            top: 2px;
+        }
+
+        .tab.active {
+            background-color: #ffffff;
+            border-bottom-color: #ffffff;
+            z-index: 10;
+        }
+
+        /* Hiding inactive content panels */
+        .content-panel {
+            display: none;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        /* Classic blue hyperlink */
+        a {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+
+        /* Custom list styles */
+        ul.disc {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <!-- Main Browser Window -->
+    <div id="browserWindow" class="browser-window max-w-4xl mx-auto">
+        
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <span>Cody Dalton's Homepage - Microsoft Internet Explorer</span>
+            <div class="window-controls">
+                <div class="window-control-btn">_</div>
+                <div class="window-control-btn">[]</div>
+                <div class="window-control-btn">X</div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar p-2 flex items-center space-x-2 border-b-2 border-b-gray-400">
+            <button class="btn-95 px-2 py-1">Back</button>
+            <button class="btn-95 px-2 py-1">Forward</button>
+            <button class="btn-95 px-2 py-1">Reload</button>
+            <button class="btn-95 px-2 py-1">Home</button>
+            <button class="btn-95 px-2 py-1">Search</button>
+            <button class="btn-95 px-2 py-1">Print</button>
+        </div>
+
+        <!-- Address Bar -->
+        <div class="address-bar p-2 flex items-center space-x-2 border-b-2 border-b-gray-400">
+            <span class="font-bold text-gray-800">Location:</span>
+            <div class="bg-white flex-grow p-1 border-2 border-gray-600 border-solid" style="border-top-color: #404040; border-left-color: #404040; border-right-color: #ffffff; border-bottom-color: #ffffff;">
+                codydalton.info
+            </div>
+        </div>
+
+        <!-- Main Content with Tabs -->
+        <div class="p-2">
+            <!-- Tab Buttons -->
+            <div class="tabs flex">
+                <button class="tab active" onclick="showTab('about')">About Me</button>
+                <button class="tab" onclick="showTab('cv')">CV</button>
+                <button class="tab" onclick="showTab('philosophy')">Teaching Philosophy</button>
+                <button class="tab" onclick="showTab('contact')">Contact</button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area p-4">
+                <!-- About Me Panel -->
+                <div id="about" class="content-panel active">
+                    <h1 class="text-2xl font-bold mb-4">Cody Montana Dalton</h1>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <p>
+                                Cody Dalton is a PhD student in Curriculum and Instruction at Virginia Tech, specializing in History and Social Science Education. His background is in teaching World History and AP Psychology at a Virginia Title I high school. He brings a deep commitment to equity, critical inquiry, and justice-driven pedagogy. 
+                            </p>
+                            <p class="mt-2">
+                                His academic interests center on historical thinking, culturally responsive teaching, and the ethical integration of AI in education. Drawing from both scholarly research and classroom practice, he cultivates reflective, collaborative learning environments that empower educators and students alike.
+                            </p>
+                            <h2 class="text-xl font-bold mt-4">Research Interests</h2>
+                            <ul class="disc mt-2">
+                                <li>Historical literacy and historical consciousness</li>
+                                <li>Pedagogical decision making</li>
+                                <li>Teacher identity</li>
+                                <li>Gen AI use for teaching and learning history</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/3 text-center">
+                            <img src="https://storage.googleapis.com/gemini-prod-us-west1-409905748535-public/uploaded_files/1748897330848%20(1)%20(1).jpeg" alt="A photo of Cody Dalton" class="mx-auto" style="border: 2px solid; border-top-color: #ffffff; border-left-color: #ffffff; border-right-color: #404040; border-bottom-color: #404040; padding: 4px; background: #c0c0c0;">
+                            <p class="text-sm mt-2">Cody M. Dalton</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV Panel -->
+                <div id="cv" class="content-panel">
+                    <h1 class="text-2xl font-bold mb-4">Curriculum Vitae (Abridged)</h1>
+                    
+                    <h2 class="text-xl font-bold mt-4">Education</h2>
+                    <ul class="disc mt-2">
+                        <li><strong>PhD, Curriculum & Instruction</strong> - Virginia Tech (In Progress)</li>
+                        <li><strong>EdS, Higher Education Leadership</strong> - South College (2025)</li>
+                        <li><strong>MBA, Business Administration</strong> - South College (2025)</li>
+                        <li><strong>MEd, Literacy</strong> - American College of Education (2025)</li>
+                        <li><strong>BS, History</strong> - Liberty University (2020)</li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold mt-4">Education Experience</h2>
+                    <ul class="disc mt-2">
+                        <li><strong>Graduate Assistant</strong> - Virginia Tech (Aug 2025 - Present)</li>
+                        <li><strong>Social Studies Teacher</strong> - Danville Public Schools (2021-2025)</li>
+                        <li><strong>AP Exam Reader</strong> - College Board (2025)</li>
+                    </ul>
+
+                     <h2 class="text-xl font-bold mt-4">Publications</h2>
+                     <p class="mt-2">Dalton, C. (2025). <em>Teaching history with intelligence: A guide to best practices for using Al in the secondary history classroom.</em> Amazon.</p>
+
+                    <h2 class="text-xl font-bold mt-4">Awards & Recognition</h2>
+                    <ul class="disc mt-2">
+                        <li>Distinguished Teacher, George Washington High School (2023-2025)</li>
+                        <li>National History Day Champion Coach (2023-2025)</li>
+                        <li>Special Educator Recognition, George Washington High School (2024-2025)</li>
+                        <li>Distinguished Graduate, American College of Education (2025)</li>
+                    </ul>
+                </div>
+
+                <!-- Teaching Philosophy Panel -->
+                <div id="philosophy" class="content-panel">
+                    <h1 class="text-2xl font-bold mb-4">Teaching Philosophy</h1>
+                    <p>
+                        Cody Dalton's personal teaching and educational philosophy is rooted in equity, inquiry, and relational trust. He believes that education should cultivate critical thinking, historical consciousness, and civic responsibility by engaging students as active participants in their learning and as meaning-makers in their communities.
+                    </p>
+                    <p class="mt-2">
+                        He draws on culturally sustaining pedagogy, trauma-informed practice, and the ethical use of technology to create inclusive, responsive environments where all learners can thrive. Grounded in the work of scholars like Freire, hooks, and Wineburg, he emphasizes reflection, collaboration, and justice as central to both curriculum design and instructional leadership. Whether mentoring preservice teachers or guiding K-12 students, his goal is always to honor student voice, bridge theory with practice, and support transformative learning.
+                    </p>
+                </div>
+
+                <!-- Contact Panel -->
+                <div id="contact" class="content-panel">
+                    <h1 class="text-2xl font-bold mb-4">Get In Touch</h1>
+                    <p>You can reach me via the following methods:</p>
+                    <ul class="disc mt-4">
+                        <li><strong>Email:</strong> <a href="mailto:cdalt@vt.edu">cdalt@vt.edu</a></li>
+                        <li><strong>Phone:</strong> (434) 710-3892</li>
+                        <li><strong>Location:</strong> Virginia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar p-2 flex justify-between border-t-2 border-t-white">
+            <div class="status-panel">Personal Interests:</div>
+            <div class="status-panel">
+                <p>My dog, Bird Law, Pacu Jalur, the Carolina Panthers, Hyping up my boss, Cooking (food), Arguing about music, Teaching old people how to use cell phones, Propane & propane accessories.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Tab functionality
+        function showTab(tabName) {
+            // Hide all content panels
+            const contentPanels = document.querySelectorAll('.content-panel');
+            contentPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show the selected content panel
+            const selectedPanel = document.getElementById(tabName);
+            if (selectedPanel) {
+                selectedPanel.classList.add('active');
+            }
+
+            // Activate the selected tab
+            const selectedTab = document.querySelector(`.tab[onclick="showTab('${tabName}')"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
